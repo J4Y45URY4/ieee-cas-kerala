@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE CAS Society - Kerala Section | Student Leadership Team</title>
+    <meta name="description" content="IEEE Circuits and Systems Society Student Leadership Team Kerala Section - Advancing circuits and systems education and research in Kerala">
+    <meta name="keywords" content="IEEE, CAS, Kerala, Circuits, Systems, Student Leadership, Electronics, Engineering">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="IEEE CAS Society Kerala Section">
+    <meta property="og:description" content="Student Leadership Team advancing circuits and systems education in Kerala">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --ieee-blue: #00629B;
+            --ieee-gold: #FFB500;
+            --kerala-green: #008752;
+            --white: #FFFFFF;
+            --gray-100: #F8F9FA;
+            --gray-200: #E9ECEF;
+            --gray-600: #6C757D;
+            --gray-800: #343A40;
+            --gray-900: #212529;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            color: var(--ieee-blue);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--ieee-blue);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--ieee-blue);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--ieee-blue) 0%, #004A7C 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--ieee-gold);
+            color: var(--gray-900);
+        }
+
+        .btn-primary:hover {
+            background: #E6A300;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--ieee-blue);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--ieee-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--gray-100);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            color: var(--ieee-blue);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--gray-600);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--ieee-blue);
+        }
+
+        .stat-label {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        /* Leadership Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--ieee-blue), var(--kerala-green));
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .team-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-position {
+            color: var(--ieee-blue);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        /* Events Section */
+        .events {
+            background: var(--gray-100);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .event-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--ieee-blue), var(--kerala-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .event-content {
+            padding: 1.5rem;
+        }
+
+        .event-date {
+            background: var(--ieee-gold);
+            color: var(--gray-900);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .event-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .event-description {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .resource-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--ieee-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .resource-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .resource-description {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--ieee-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--gray-200);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--ieee-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--ieee-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--ieee-gold);
+            color: var(--gray-900);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--gray-600);
+            color: var(--gray-600);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">
+                <div class="logo-icon"><img src=".//ieee_cass_kerala.png" width="280"></div>
+                <span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Leadership</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in-up">
+            <h1>IEEE CAS Society Kerala Section</h1>
+            <p>Empowering the next generation of engineers in Circuits and Systems through innovation, collaboration, and excellence in research and education.</p>
+            <div class="cta-buttons">
+                <a href="#events" class="btn btn-primary">
+                    <i class="fas fa-calendar"></i>
+                    Upcoming Events
+                </a>
+                <a href="#team" class="btn btn-secondary">
+                    <i class="fas fa-users"></i>
+                    Meet Our Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About IEEE CAS Kerala</h2>
+                    <p>The IEEE Circuits and Systems Society Kerala Section is dedicated to advancing the theory and application of circuits and systems. Our student leadership team works tirelessly to bridge the gap between academic learning and industry requirements.</p>
+                    <p>We organize technical workshops, seminars, competitions, and networking events to foster innovation and professional development among students and young professionals in Kerala.</p>
+                    <a href="#contact" class="btn btn-primary">Join Our Community</a>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Active Members</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Events This Year</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Institutions</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Industry Partners</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Student Leadership Team</h2>
+                <p class="section-subtitle">Meet the passionate individuals leading IEEE CAS Kerala Section towards excellence and innovation.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card fade-in-up">
+                    <div class="team-avatar">AR</div>
+                    <h3 class="team-name">Arjun Raj</h3>
+                    <p class="team-position">Chair</p>
+                    <p class="team-bio">Final year ECE student passionate about VLSI design and analog circuits. Leading initiatives to strengthen industry-academia collaboration.</p>
+                </div>
+                <div class="team-card fade-in-up">
+                    <div class="team-avatar">PM</div>
+                    <h3 class="team-name">Priya Menon</h3>
+                    <p class="team-position">Vice Chair</p>
+                    <p class="team-bio">Pursuing M.Tech in Communication Systems. Focuses on signal processing and organizing technical workshops for skill development.</p>
+                </div>
+                <div class="team-card fade-in-up">
+                    <div class="team-avatar">SK</div>
+                    <h3 class="team-name">Suraj Kumar</h3>
+                    <p class="team-position">Secretary</p>
+                    <p class="team-bio">Electronics enthusiast with expertise in embedded systems. Coordinates events and manages member engagement activities.</p>
+                </div>
+                <div class="team-card fade-in-up">
+                    <div class="team-avatar">AN</div>
+                    <h3 class="team-name">Asha Nair</h3>
+                    <p class="team-position">Treasurer</p>
+                    <p class="team-bio">Computer Science student with interest in circuit simulation. Manages finances and sponsors for various technical events.</p>
+                </div>
+                <div class="team-card fade-in-up">
+                    <div class="team-avatar">RV</div>
+                    <h3 class="team-name">Rohan Varma</h3>
+                    <p class="team-position">Technical Lead</p>
+                    <p class="team-bio">Research enthusiast in RF circuits and antenna design. Leads technical committees and research collaborations.</p>
+                </div>
+                <div class="team-card fade-in-up">
+                    <div class="team-avatar">MP</div>
+                    <h3 class="team-name">Megha Pillai</h3>
+                    <p class="team-position">Outreach Coordinator</p>
+                    <p class="team-bio">Biomedical engineering student focusing on medical device circuits. Manages community outreach and social media presence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="section events" id="events">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Upcoming Events</h2>
+                <p class="section-subtitle">Join us for exciting technical events, workshops, and networking opportunities.</p>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-image">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="event-content">
+                        <span class="event-date">June 15, 2025</span>
+                        <h3 class="event-title">VLSI Design Workshop</h3>
+                        <p class="event-description">Hands-on workshop on advanced VLSI design techniques using industry-standard tools. Perfect for students and professionals.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> TKM College of Engineering</span>
+                            <span><i class="fas fa-users"></i> 50 seats</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image">
+                        <i class="fas fa-broadcast-tower"></i>
+                    </div>
+                    <div class="event-content">
+                        <span class="event-date">June 28, 2025</span>
+                        <h3 class="event-title">5G Communications Seminar</h3>
+                        <p class="event-description">Expert talks on 5G technology, circuit design challenges, and future opportunities in wireless communications.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> CET Trivandrum</span>
+                            <span><i class="fas fa-users"></i> 100 seats</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="event-content">
+                        <span class="event-date">July 10, 2025</span>
+                        <h3 class="event-title">Circuit Design Competition</h3>
+                        <p class="event-description">State-level competition for innovative circuit designs. Cash prizes and internship opportunities for winners.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> CUSAT Kochi</span>
+                            <span><i class="fas fa-users"></i> Team Event</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="section" id="resources">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Resources</h2>
+                <p class="section-subtitle">Access valuable resources to enhance your knowledge and skills in circuits and systems.</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="resource-title">Study Materials</h3>
+                    <p class="resource-description">Comprehensive notes, tutorials, and reference materials for circuits and systems courses.</p>
+                    <a href="#" class="btn btn-primary">Access Now</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="resource-title">Simulation Tools</h3>
+                    <p class="resource-description">Links to free and student versions of popular circuit simulation software and tutorials.</p>
+                    <a href="#" class="btn btn-primary">Download</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="resource-title">Research Papers</h3>
+                    <p class="resource-description">Curated collection of recent research papers and publications in circuits and systems.</p>
+                    <a href="#" class="btn btn-primary">Browse</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="resource-title">Career Guidance</h3>
+                    <p class="resource-description">Job opportunities, internship programs, and career advice for circuits and systems engineers.</p>
+                    <a href="#" class="btn btn-primary">Explore</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>IEEE CAS Kerala</h3>
+                <p>Advancing circuits and systems education and research across Kerala's premier engineering institutions.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#about">About Us</a>
+                <a href="#team">Leadership Team</a>
+                <a href="#events">Events</a>
+                <a href="#resources">Resources</a>
+                <a href="https://ieee.org">IEEE.org</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> kerala.cas@ieee.org</p>
+                <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                <p><i class="fas fa-map-marker-alt"></i> Thiruvananthapuram, Kerala</p>
+            </div>
+            <div class="footer-section">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest updates on events and opportunities.</p>
+                <div style="margin-top: 1rem;">
+                    <input type="email" placeholder="Enter your email" style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--gray-600); width: 100%; margin-bottom: 0.5rem;">
+                    <button class="btn btn-primary" style="width: 100%;">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 IEEE Circuits and Systems Society Kerala Section. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.team-card, .event-card, .resource-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Newsletter subscription
+        document.addEventListener('DOMContentLoaded', () => {
+            const subscribeBtn = document.querySelector('button[style*="width: 100%"]');
+            const emailInput = document.querySelector('input[type="email"]');
+            
+            if (subscribeBtn && emailInput) {
+                subscribeBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const email = emailInput.value.trim();
+                    
+                    if (email && isValidEmail(email)) {
+                        // Simulate subscription process
+                        subscribeBtn.textContent = 'Subscribing...';
+                        subscribeBtn.disabled = true;
+                        
+                        setTimeout(() => {
+                            subscribeBtn.textContent = 'Subscribed!';
+                            subscribeBtn.style.background = 'var(--kerala-green)';
+                            emailInput.value = '';
+                            
+                            setTimeout(() => {
+                                subscribeBtn.textContent = 'Subscribe';
+                                subscribeBtn.style.background = 'var(--ieee-gold)';
+                                subscribeBtn.disabled = false;
+                            }, 2000);
+                        }, 1000);
+                    } else {
+                        alert('Please enter a valid email address');
+                    }
+                });
+            }
+        });
+
+        // Email validation function
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Dynamic counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace('+', ''));
+                const increment = target / 50;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + '+';
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.ceil(current) + '+';
+                    }
+                }, 30);
+            });
+        }
+
+        // Trigger counter animation when stats section comes into view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Add loading animation for event cards
+        function addLoadingStates() {
+            const eventCards = document.querySelectorAll('.event-card');
+            eventCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        }
+
+        // Initialize loading states
+        addLoadingStates();
+
+        // Header scroll effect
+        let lastScrollTop = 0;
+        const header = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Add transition to header
+        header.style.transition = 'transform 0.3s ease-in-out';
+
+        // Mobile responsive navigation
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navLinks.style.display = 'flex';
+            } else {
+                navLinks.style.display = 'none';
+            }
+        });//
+
+        // Lazy loading for images (if any are added later)
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Contact form handling (for future implementation)
+        function handleContactForm() {
+            const contactForms = document.querySelectorAll('form');
+            contactForms.forEach(form => {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    // Handle form submission
+                    console.log('Form submitted');
+                });
+            });
+        }
+
+        // Initialize contact form handling
+        handleContactForm();
+
+        // Performance optimization: Defer non-critical functions
+        window.addEventListener('load', () => {
+            // Add any performance-heavy operations here
+            console.log('IEEE CAS Kerala website loaded successfully');
+        });
+
+        // Accessibility improvements
+        document.addEventListener('keydown', (e) => {
+            // ESC key to close mobile menu
+            if (e.key === 'Escape' && window.innerWidth <= 768) {
+                navLinks.style.display = 'none';
+            }
+        });
+
+        // Focus management for mobile menu
+        mobileMenuBtn.addEventListener('click', () => {
+            const isMenuOpen = navLinks.style.display === 'flex';
+            if (isMenuOpen) {
+                navLinks.querySelector('a').focus();
+            }
+        });
+    </script>
+</body>
+</html>
