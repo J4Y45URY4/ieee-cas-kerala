@@ -45,13 +45,27 @@
             color: var(--gray-800);
         }
 
+        /* Screen reader only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
         /* Header */
         .header {
             background: var(--white);
             box-shadow: var(--shadow-md);
-            position: sticky;
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 1000;
+            transition: transform 0.3s ease-in-out;
         }
 
         .nav {
@@ -73,7 +87,9 @@
             font-size: 1.1rem;
         }
 
-        
+        .logo-icon {
+            max-width: 150px;
+        }
 
         .nav-links {
             display: flex;
@@ -82,14 +98,18 @@
             align-items: center;
         }
 
-        .nav-links a {
+        .nav-item a {
             text-decoration: none;
             color: var(--gray-600);
             font-weight: 500;
+            padding: 0.5rem;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
             transition: color 0.3s;
         }
 
-        .nav-links a:hover {
+        .nav-item a:hover {
             color: var(--ieee-blue);
         }
 
@@ -481,7 +501,47 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
                 flex-direction: column;
+                align-items: center;
+                padding: 1.5rem 0;
+                box-shadow: var(--shadow-md);
+                border-radius: 0 0 12px 12px;
+                z-index: 999;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                opacity: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-item {
+                width: 90%;
+                text-align: center;
+                margin: 0.5rem 0;
+            }
+
+            .nav-item a {
+                display: block;
+                font-size: 1.6rem;
+                color: var(--ieee-blue);
+                padding: 0.75rem;
+                border-radius: 8px;
+                background: var(--gray-100);
+                transition: background 0.3s, color 0.3s;
+            }
+
+            .nav-item a:hover {
+                background: var(--ieee-gold);
+                color: var(--gray-900);
             }
 
             .mobile-menu-btn {
@@ -515,6 +575,31 @@
             }
         }
 
+        @media (max-width: 480px) {
+            .nav-links {
+                top: 60px;
+            }
+
+            .nav-item a {
+                font-size: 1.4rem;
+                padding: 0.6rem;
+            }
+
+            .logo-icon {
+                max-width: 120px;
+            }
+
+            .nav {
+                padding: 0.75rem 1.5rem;
+            }
+        }
+
+        /* Focus styles */
+        a:focus, button:focus {
+            outline: 2px solid var(--ieee-blue);
+            outline-offset: 2px;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -540,19 +625,21 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="nav">
+        <nav class="nav" role="navigation">
             <a href="#" class="logo">
-                <div class="logo-icon"><img src=".//ieee_cass_kerala.png" width="280"></div>
-                <span></span>
+                <div class="logo-icon">
+                    <img src="./ieee_cass_kerala.png"  style="max-width: 100%; height: auto;" loading="lazy">
+                </div>
+                <span class="sr-only">IEEE CAS Kerala</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#team">Leadership</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#resources">Resources</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul class="nav-links" aria-hidden="true">
+                <li class="nav-item"><a href="#about">About</a></li>
+                <li class="nav-item"><a href="#team">Leadership</a></li>
+                <li class="nav-item"><a href="#events">Events</a></li>
+                <li class="nav-item"><a href="#resources">Resources</a></li>
+                <li class="nav-item"><a href="#contact">Contact</a></li>
             </ul>
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
         </nav>
@@ -724,7 +811,7 @@
                     </div>
                     <h3 class="resource-title">Study Materials</h3>
                     <p class="resource-description">Comprehensive notes, tutorials, and reference materials for circuits and systems courses.</p>
-                    <a href="#" class="btn btn-primary">Access Now</a>
+                    <a href="#" class="btn btn-primary">Access Now</a> <!-- Replace # with actual URL -->
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -732,7 +819,7 @@
                     </div>
                     <h3 class="resource-title">Simulation Tools</h3>
                     <p class="resource-description">Links to free and student versions of popular circuit simulation software and tutorials.</p>
-                    <a href="#" class="btn btn-primary">Download</a>
+                    <a href="#" class="btn btn-primary">Download</a> <!-- Replace # with actual URL -->
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -740,7 +827,7 @@
                     </div>
                     <h3 class="resource-title">Research Papers</h3>
                     <p class="resource-description">Curated collection of recent research papers and publications in circuits and systems.</p>
-                    <a href="#" class="btn btn-primary">Browse</a>
+                    <a href="#" class="btn btn-primary">Browse</a> <!-- Replace # with actual URL -->
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -748,7 +835,7 @@
                     </div>
                     <h3 class="resource-title">Career Guidance</h3>
                     <p class="resource-description">Job opportunities, internship programs, and career advice for circuits and systems engineers.</p>
-                    <a href="#" class="btn btn-primary">Explore</a>
+                    <a href="#" class="btn btn-primary">Explore</a> <!-- Replace # with actual URL -->
                 </div>
             </div>
         </div>
@@ -761,10 +848,10 @@
                 <h3>IEEE CAS Kerala</h3>
                 <p>Advancing circuits and systems education and research across Kerala's premier engineering institutions.</p>
                 <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a> <!-- Replace # with actual URL -->
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a> <!-- Replace # with actual URL -->
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a> <!-- Replace # with actual URL -->
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a> <!-- Replace # with actual URL -->
                 </div>
             </div>
             <div class="footer-section">
@@ -791,7 +878,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 IEEE Circuits and Systems Society Kerala Section. All rights reserved.</p>
+            <p>© 2025 IEEE Circuits and Systems Society Kerala Section. All rights reserved.</p>
         </div>
     </footer>
 
@@ -801,7 +888,23 @@
         const navLinks = document.querySelector('.nav-links');
 
         mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            const isOpen = navLinks.classList.toggle('active');
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+            mobileMenuBtn.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            navLinks.setAttribute('aria-hidden', !isOpen);
+            if (isOpen) {
+                navLinks.querySelector('a').focus();
+            }
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                navLinks.setAttribute('aria-hidden', 'true');
+            });
         });
 
         // Smooth scrolling for navigation links
@@ -816,6 +919,48 @@
                     });
                 }
             });
+        });
+
+        // Header scroll effect
+        let lastScrollTop = 0;
+        const header = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 50) {
+                header.style.transform = 'translateY(-100%)';
+                navLinks.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                navLinks.setAttribute('aria-hidden', 'true');
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        // Mobile responsive navigation
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('active');
+                navLinks.style.display = 'flex';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                navLinks.setAttribute('aria-hidden', 'false');
+            } else {
+                navLinks.style.display = navLinks.classList.contains('active') ? 'flex' : 'none';
+            }
+        });
+
+        // Accessibility: Close menu with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && window.innerWidth <= 768) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                navLinks.setAttribute('aria-hidden', 'true');
+                mobileMenuBtn.focus();
+            }
         });
 
         // Intersection Observer for animations
@@ -833,7 +978,6 @@
             });
         }, observerOptions);
 
-        // Observe elements for animation
         document.querySelectorAll('.team-card, .event-card, .resource-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
@@ -852,15 +996,13 @@
                     const email = emailInput.value.trim();
                     
                     if (email && isValidEmail(email)) {
-                        // Simulate subscription process
                         subscribeBtn.textContent = 'Subscribing...';
                         subscribeBtn.disabled = true;
+                        subscribeBtn.style.background = 'var(--kerala-green)';
                         
                         setTimeout(() => {
                             subscribeBtn.textContent = 'Subscribed!';
-                            subscribeBtn.style.background = 'var(--kerala-green)';
                             emailInput.value = '';
-                            
                             setTimeout(() => {
                                 subscribeBtn.textContent = 'Subscribe';
                                 subscribeBtn.style.background = 'var(--ieee-gold)';
@@ -874,17 +1016,17 @@
             }
         });
 
-        // Email validation function
         function isValidEmail(email) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return emailRegex.test(email);
         }
 
-        // Dynamic counter animation for stats
+        // Counter animation for stats
         function animateCounters() {
             const counters = document.querySelectorAll('.stat-number');
-            
             counters.forEach(counter => {
+                if (counter.dataset.animated) return; // Skip if already animated
+                counter.dataset.animated = 'true';
                 const target = parseInt(counter.textContent.replace('+', ''));
                 const increment = target / 50;
                 let current = 0;
@@ -901,7 +1043,6 @@
             });
         }
 
-        // Trigger counter animation when stats section comes into view
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -916,7 +1057,7 @@
             statsObserver.observe(statsSection);
         }
 
-        // Add loading animation for event cards
+        // Staggered animation for cards
         function addLoadingStates() {
             const eventCards = document.querySelectorAll('.event-card');
             eventCards.forEach((card, index) => {
@@ -924,93 +1065,25 @@
             });
         }
 
-        // Initialize loading states
         addLoadingStates();
 
-        // Header scroll effect
-        let lastScrollTop = 0;
-        const header = document.querySelector('.header');
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scrolling down
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                // Scrolling up
-                header.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollTop = scrollTop;
-        });
-
-        // Add transition to header
-        header.style.transition = 'transform 0.3s ease-in-out';
-
-        // Mobile responsive navigation
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                navLinks.style.display = 'flex';
-            } else {
-                navLinks.style.display = 'none';
-            }
-        });//
-
-        // Lazy loading for images (if any are added later)
+        // Lazy loading for images
         if ('IntersectionObserver' in window) {
             const imageObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const img = entry.target;
-                        img.src = img.dataset.src;
+                        img.src = img.dataset.src || img.src;
                         img.classList.remove('lazy');
                         imageObserver.unobserve(img);
                     }
                 });
             });
 
-            document.querySelectorAll('img[data-src]').forEach(img => {
+            document.querySelectorAll('img[data-src], img[loading="lazy"]').forEach(img => {
                 imageObserver.observe(img);
             });
         }
-
-        // Contact form handling (for future implementation)
-        function handleContactForm() {
-            const contactForms = document.querySelectorAll('form');
-            contactForms.forEach(form => {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    // Handle form submission
-                    console.log('Form submitted');
-                });
-            });
-        }
-
-        // Initialize contact form handling
-        handleContactForm();
-
-        // Performance optimization: Defer non-critical functions
-        window.addEventListener('load', () => {
-            // Add any performance-heavy operations here
-            console.log('IEEE CAS Kerala website loaded successfully');
-        });
-
-        // Accessibility improvements
-        document.addEventListener('keydown', (e) => {
-            // ESC key to close mobile menu
-            if (e.key === 'Escape' && window.innerWidth <= 768) {
-                navLinks.style.display = 'none';
-            }
-        });
-
-        // Focus management for mobile menu
-        mobileMenuBtn.addEventListener('click', () => {
-            const isMenuOpen = navLinks.style.display === 'flex';
-            if (isMenuOpen) {
-                navLinks.querySelector('a').focus();
-            }
-        });
     </script>
 </body>
 </html>
