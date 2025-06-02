@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -625,14 +626,14 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="nav" role="navigation">
+        <nav class="nav">
             <a href="#" class="logo">
                 <div class="logo-icon">
-                    <img src="./ieee_cass_kerala.png"  style="max-width: 100%; height: auto;" loading="lazy">
+                    <img src="./ieee_cass_kerala.png" alt="IEEE CAS Kerala Logo" style="max-width: 100%; height: auto;" loading="lazy">
                 </div>
                 <span class="sr-only">IEEE CAS Kerala</span>
             </a>
-            <ul class="nav-links" aria-hidden="true">
+            <ul class="nav-links" role="navigation" aria-hidden="true">
                 <li class="nav-item"><a href="#about">About</a></li>
                 <li class="nav-item"><a href="#team">Leadership</a></li>
                 <li class="nav-item"><a href="#events">Events</a></li>
@@ -811,7 +812,7 @@
                     </div>
                     <h3 class="resource-title">Study Materials</h3>
                     <p class="resource-description">Comprehensive notes, tutorials, and reference materials for circuits and systems courses.</p>
-                    <a href="#" class="btn btn-primary">Access Now</a> <!-- Replace # with actual URL -->
+                    <a href="#" class="btn btn-primary">Access Now</a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -819,7 +820,7 @@
                     </div>
                     <h3 class="resource-title">Simulation Tools</h3>
                     <p class="resource-description">Links to free and student versions of popular circuit simulation software and tutorials.</p>
-                    <a href="#" class="btn btn-primary">Download</a> <!-- Replace # with actual URL -->
+                    <a href="#" class="btn btn-primary">Download</a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -827,7 +828,7 @@
                     </div>
                     <h3 class="resource-title">Research Papers</h3>
                     <p class="resource-description">Curated collection of recent research papers and publications in circuits and systems.</p>
-                    <a href="#" class="btn btn-primary">Browse</a> <!-- Replace # with actual URL -->
+                    <a href="#" class="btn btn-primary">Browse</a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -835,7 +836,7 @@
                     </div>
                     <h3 class="resource-title">Career Guidance</h3>
                     <p class="resource-description">Job opportunities, internship programs, and career advice for circuits and systems engineers.</p>
-                    <a href="#" class="btn btn-primary">Explore</a> <!-- Replace # with actual URL -->
+                    <a href="#" class="btn btn-primary">Explore</a>
                 </div>
             </div>
         </div>
@@ -848,10 +849,10 @@
                 <h3>IEEE CAS Kerala</h3>
                 <p>Advancing circuits and systems education and research across Kerala's premier engineering institutions.</p>
                 <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a> <!-- Replace # with actual URL -->
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a> <!-- Replace # with actual URL -->
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a> <!-- Replace # with actual URL -->
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a> <!-- Replace # with actual URL -->
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-section">
@@ -927,6 +928,7 @@
 
         window.addEventListener('scroll', () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
             if (scrollTop > lastScrollTop && scrollTop > 50) {
                 header.style.transform = 'translateY(-100%)';
                 navLinks.classList.remove('active');
@@ -936,6 +938,7 @@
             } else {
                 header.style.transform = 'translateY(0)';
             }
+            
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
@@ -963,7 +966,7 @@
             }
         });
 
-        // Intersection Observer for animations
+        // Initialize existing scripts
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -985,7 +988,6 @@
             observer.observe(el);
         });
 
-        // Newsletter subscription
         document.addEventListener('DOMContentLoaded', () => {
             const subscribeBtn = document.querySelector('button[style*="width: 100%"]');
             const emailInput = document.querySelector('input[type="email"]');
@@ -998,11 +1000,12 @@
                     if (email && isValidEmail(email)) {
                         subscribeBtn.textContent = 'Subscribing...';
                         subscribeBtn.disabled = true;
-                        subscribeBtn.style.background = 'var(--kerala-green)';
                         
                         setTimeout(() => {
                             subscribeBtn.textContent = 'Subscribed!';
+                            subscribeBtn.style.background = 'var(--kerala-green)';
                             emailInput.value = '';
+                            
                             setTimeout(() => {
                                 subscribeBtn.textContent = 'Subscribe';
                                 subscribeBtn.style.background = 'var(--ieee-gold)';
@@ -1021,12 +1024,9 @@
             return emailRegex.test(email);
         }
 
-        // Counter animation for stats
         function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
+            const counters = document.querySelectorAll.stat-number');
             counters.forEach(counter => {
-                if (counter.dataset.animated) return; // Skip if already animated
-                counter.dataset.animated = 'true';
                 const target = parseInt(counter.textContent.replace('+', ''));
                 const increment = target / 50;
                 let current = 0;
@@ -1057,7 +1057,6 @@
             statsObserver.observe(statsSection);
         }
 
-        // Staggered animation for cards
         function addLoadingStates() {
             const eventCards = document.querySelectorAll('.event-card');
             eventCards.forEach((card, index) => {
@@ -1067,7 +1066,6 @@
 
         addLoadingStates();
 
-        // Lazy loading for images
         if ('IntersectionObserver' in window) {
             const imageObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -1084,6 +1082,22 @@
                 imageObserver.observe(img);
             });
         }
+
+        function handleContactForm() {
+            const contactForms = document.querySelectorAll('form');
+            contactForms.forEach(form => {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    console.log('Form submitted');
+                });
+            });
+        }
+
+        handleContactForm();
+
+        window.addEventListener('load', () => {
+            console.log('IEEE CAS Kerala website loaded successfully');
+        });
     </script>
 </body>
 </html>
