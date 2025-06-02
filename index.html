@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,27 +45,13 @@
             color: var(--gray-800);
         }
 
-        /* Screen reader only */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-
         /* Header */
         .header {
             background: var(--white);
             box-shadow: var(--shadow-md);
-            position: fixed;
+            position: sticky;
             top: 0;
-            width: 100%;
             z-index: 1000;
-            transition: transform 0.3s ease-in-out;
         }
 
         .nav {
@@ -88,9 +73,7 @@
             font-size: 1.1rem;
         }
 
-        .logo-icon {
-            max-width: 150px;
-        }
+        
 
         .nav-links {
             display: flex;
@@ -99,18 +82,14 @@
             align-items: center;
         }
 
-        .nav-item a {
+        .nav-links a {
             text-decoration: none;
             color: var(--gray-600);
             font-weight: 500;
-            padding: 0.5rem;
-            min-height: 44px;
-            display: inline-flex;
-            align-items: center;
             transition: color 0.3s;
         }
 
-        .nav-item a:hover {
+        .nav-links a:hover {
             color: var(--ieee-blue);
         }
 
@@ -502,47 +481,7 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: var(--white);
                 flex-direction: column;
-                align-items: center;
-                padding: 1.5rem 0;
-                box-shadow: var(--shadow-md);
-                border-radius: 0 0 12px 12px;
-                z-index: 999;
-                transform: translateY(-100%);
-                transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-                opacity: 0;
-            }
-
-            .nav-links.active {
-                display: flex;
-                transform: translateY(0);
-                opacity: 1;
-            }
-
-            .nav-item {
-                width: 90%;
-                text-align: center;
-                margin: 0.5rem 0;
-            }
-
-            .nav-item a {
-                display: block;
-                font-size: 1.6rem;
-                color: var(--ieee-blue);
-                padding: 0.75rem;
-                border-radius: 8px;
-                background: var(--gray-100);
-                transition: background 0.3s, color 0.3s;
-            }
-
-            .nav-item a:hover {
-                background: var(--ieee-gold);
-                color: var(--gray-900);
             }
 
             .mobile-menu-btn {
@@ -576,31 +515,6 @@
             }
         }
 
-        @media (max-width: 480px) {
-            .nav-links {
-                top: 60px;
-            }
-
-            .nav-item a {
-                font-size: 1.4rem;
-                padding: 0.6rem;
-            }
-
-            .logo-icon {
-                max-width: 120px;
-            }
-
-            .nav {
-                padding: 0.75rem 1.5rem;
-            }
-        }
-
-        /* Focus styles */
-        a:focus, button:focus {
-            outline: 2px solid var(--ieee-blue);
-            outline-offset: 2px;
-        }
-
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -628,19 +542,17 @@
     <header class="header">
         <nav class="nav">
             <a href="#" class="logo">
-                <div class="logo-icon">
-                    <img src="./ieee_cass_kerala.png" alt="IEEE CAS Kerala Logo" style="max-width: 100%; height: auto;" loading="lazy">
-                </div>
-                <span class="sr-only">IEEE CAS Kerala</span>
+                <div class="logo-icon"><img src=".//ieee_cass_kerala.png" width="280"></div>
+                <span></span>
             </a>
-            <ul class="nav-links" role="navigation" aria-hidden="true">
-                <li class="nav-item"><a href="#about">About</a></li>
-                <li class="nav-item"><a href="#team">Leadership</a></li>
-                <li class="nav-item"><a href="#events">Events</a></li>
-                <li class="nav-item"><a href="#resources">Resources</a></li>
-                <li class="nav-item"><a href="#contact">Contact</a></li>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Leadership</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+            <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
         </nav>
@@ -879,7 +791,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 IEEE Circuits and Systems Society Kerala Section. All rights reserved.</p>
+            <p>&copy; 2025 IEEE Circuits and Systems Society Kerala Section. All rights reserved.</p>
         </div>
     </footer>
 
@@ -889,23 +801,7 @@
         const navLinks = document.querySelector('.nav-links');
 
         mobileMenuBtn.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('active');
-            mobileMenuBtn.setAttribute('aria-expanded', isOpen);
-            mobileMenuBtn.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-            navLinks.setAttribute('aria-hidden', !isOpen);
-            if (isOpen) {
-                navLinks.querySelector('a').focus();
-            }
-        });
-
-        // Close menu when a link is clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                navLinks.setAttribute('aria-hidden', 'true');
-            });
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
 
         // Smooth scrolling for navigation links
@@ -922,51 +818,7 @@
             });
         });
 
-        // Header scroll effect
-        let lastScrollTop = 0;
-        const header = document.querySelector('.header');
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop && scrollTop > 50) {
-                header.style.transform = 'translateY(-100%)';
-                navLinks.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                navLinks.setAttribute('aria-hidden', 'true');
-            } else {
-                header.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        });
-
-        // Mobile responsive navigation
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                navLinks.classList.remove('active');
-                navLinks.style.display = 'flex';
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                navLinks.setAttribute('aria-hidden', 'false');
-            } else {
-                navLinks.style.display = navLinks.classList.contains('active') ? 'flex' : 'none';
-            }
-        });
-
-        // Accessibility: Close menu with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && window.innerWidth <= 768) {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                navLinks.setAttribute('aria-hidden', 'true');
-                mobileMenuBtn.focus();
-            }
-        });
-
-        // Initialize existing scripts
+        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -981,6 +833,7 @@
             });
         }, observerOptions);
 
+        // Observe elements for animation
         document.querySelectorAll('.team-card, .event-card, .resource-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
@@ -988,6 +841,7 @@
             observer.observe(el);
         });
 
+        // Newsletter subscription
         document.addEventListener('DOMContentLoaded', () => {
             const subscribeBtn = document.querySelector('button[style*="width: 100%"]');
             const emailInput = document.querySelector('input[type="email"]');
@@ -998,6 +852,7 @@
                     const email = emailInput.value.trim();
                     
                     if (email && isValidEmail(email)) {
+                        // Simulate subscription process
                         subscribeBtn.textContent = 'Subscribing...';
                         subscribeBtn.disabled = true;
                         
@@ -1019,13 +874,16 @@
             }
         });
 
+        // Email validation function
         function isValidEmail(email) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return emailRegex.test(email);
         }
 
+        // Dynamic counter animation for stats
         function animateCounters() {
-            const counters = document.querySelectorAll.stat-number');
+            const counters = document.querySelectorAll('.stat-number');
+            
             counters.forEach(counter => {
                 const target = parseInt(counter.textContent.replace('+', ''));
                 const increment = target / 50;
@@ -1043,6 +901,7 @@
             });
         }
 
+        // Trigger counter animation when stats section comes into view
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1057,6 +916,7 @@
             statsObserver.observe(statsSection);
         }
 
+        // Add loading animation for event cards
         function addLoadingStates() {
             const eventCards = document.querySelectorAll('.event-card');
             eventCards.forEach((card, index) => {
@@ -1064,39 +924,92 @@
             });
         }
 
+        // Initialize loading states
         addLoadingStates();
 
+        // Header scroll effect
+        let lastScrollTop = 0;
+        const header = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Add transition to header
+        header.style.transition = 'transform 0.3s ease-in-out';
+
+        // Mobile responsive navigation
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navLinks.style.display = 'flex';
+            } else {
+                navLinks.style.display = 'none';
+            }
+        });//
+
+        // Lazy loading for images (if any are added later)
         if ('IntersectionObserver' in window) {
             const imageObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const img = entry.target;
-                        img.src = img.dataset.src || img.src;
+                        img.src = img.dataset.src;
                         img.classList.remove('lazy');
                         imageObserver.unobserve(img);
                     }
                 });
             });
 
-            document.querySelectorAll('img[data-src], img[loading="lazy"]').forEach(img => {
+            document.querySelectorAll('img[data-src]').forEach(img => {
                 imageObserver.observe(img);
             });
         }
 
+        // Contact form handling (for future implementation)
         function handleContactForm() {
             const contactForms = document.querySelectorAll('form');
             contactForms.forEach(form => {
                 form.addEventListener('submit', (e) => {
                     e.preventDefault();
+                    // Handle form submission
                     console.log('Form submitted');
                 });
             });
         }
 
+        // Initialize contact form handling
         handleContactForm();
 
+        // Performance optimization: Defer non-critical functions
         window.addEventListener('load', () => {
+            // Add any performance-heavy operations here
             console.log('IEEE CAS Kerala website loaded successfully');
+        });
+
+        // Accessibility improvements
+        document.addEventListener('keydown', (e) => {
+            // ESC key to close mobile menu
+            if (e.key === 'Escape' && window.innerWidth <= 768) {
+                navLinks.style.display = 'none';
+            }
+        });
+
+        // Focus management for mobile menu
+        mobileMenuBtn.addEventListener('click', () => {
+            const isMenuOpen = navLinks.style.display === 'flex';
+            if (isMenuOpen) {
+                navLinks.querySelector('a').focus();
+            }
         });
     </script>
 </body>
