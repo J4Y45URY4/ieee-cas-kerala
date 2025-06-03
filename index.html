@@ -571,9 +571,7 @@
             .nav-links li{
                 width:100%;
             }
-            .nav-links li focus-within {
-              display: none;
-            }
+            
             .nav-links a{
                 display:block;
                 padding:0.75rem 0;
@@ -1002,6 +1000,9 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                }
+                if (window.innerWidth <= 768) {
+                navLinks.style.display = 'none';
                 }
             });
         });
