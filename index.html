@@ -88,6 +88,8 @@
             font-weight: 500;
             transition: color 0.3s;
         }
+        
+
 
         .nav-links a:hover {
             color: var(--ieee-blue);
@@ -551,6 +553,30 @@
             .nav-links {
                 display: none;
                 flex-direction: column;
+                position: absolute;
+                top:100%;
+                left:0;
+                right:0;
+                background:var(--white);
+                gap:0;
+                padding:1rem 2rem;
+                box-shadow:var(--shadow-lg);
+                border-top:1px solid var(--gray-200);
+                z-index:1000;
+            }
+            .nav-links.mobile-open{
+                display:flex;
+
+            }
+            .nav-links li{
+                width:100%;
+            }
+            .nav-links a{
+                display:block;
+                padding:0.75rem 0;
+                border-bottom:1px solid var(--gray-200);
+                width:100%;
+
             }
 
             .mobile-menu-btn {
