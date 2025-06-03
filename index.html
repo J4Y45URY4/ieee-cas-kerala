@@ -412,6 +412,67 @@
             font-size: 0.875rem;
             margin-bottom: 1.5rem;
         }
+        /* Student Branch Chapters Section */
+        .chapters {
+            background: var(--gray-100);
+        }
+
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .chapter-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .chapter-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chapter-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .chapter-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-location {
+            color: var(--ieee-blue);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-description {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
 
         /* Footer */
         .footer {
@@ -558,6 +619,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#team">Leadership</a></li>
                 <li><a href="#events">Events</a></li>
+                <li><a href="#chapters">Chapters</a></li>
                 <li><a href="#resources">Resources</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -703,6 +765,48 @@
                     <h3 class="team-name">Megha Pillai</h3>
                     <p class="team-position">Outreach Coordinator</p>
                     <p class="team-bio">Biomedical engineering student focusing on medical device circuits. Manages community outreach and social media presence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section chapters" id="chapters">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Student Branch Chapters</h2>
+                <p class="section-subtitle">Explore our active IEEE CAS student branch chapters across Kerala's top engineering institutions.</p>
+            </div>
+            <div class="chapter-grid">
+                <div class="chapter-card fade-in-up">
+                    <div class="chapter-img">
+                        <img src="images/tkm_logo.png" alt="TKM College of Engineering Logo">
+                    </div>
+                    <h3 class="chapter-name">TKM College of Engineering</h3>
+                    <p class="chapter-location">Kollam, Kerala</p>
+                    <p class="chapter-description">A vibrant chapter hosting workshops and competitions in VLSI and embedded systems.</p>
+                </div>
+                <div class="chapter-card fade-in-up">
+                    <div class="chapter-img">
+                        <img src="images/cet_logo.png" alt="CET Trivandrum Logo">
+                    </div>
+                    <h3 class="chapter-name">CET Trivandrum</h3>
+                    <p class="chapter-location">Trivandrum, Kerala</p>
+                    <p class="chapter-description">Focused on signal processing and 5G technology, organizing seminars and hackathons.</p>
+                </div>
+                <div class="chapter-card fade-in-up">
+                    <div class="chapter-img">
+                        <img src="images/cusat_logo.png" alt="CUSAT Kochi Logo">
+                    </div>
+                    <h3 class="chapter-name">CUSAT Kochi</h3>
+                    <p class="chapter-location">Kochi, Kerala</p>
+                    <p class="chapter-description">Leads in circuit design innovation with regular industry-academia collaboration events.</p>
+                </div>
+                <div class="chapter-card fade-in-up">
+                    <div class="chapter-img">
+                        <img src="images/nitc_logo.png" alt="NIT Calicut Logo">
+                    </div>
+                    <h3 class="chapter-name">NIT Calicut</h3>
+                    <p class="chapter-location">Calicut, Kerala</p>
+                    <p class="chapter-description">Engages students in RF circuits and IoT through hands-on projects and workshops.</p>
                 </div>
             </div>
         </div>
