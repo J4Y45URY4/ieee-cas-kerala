@@ -551,6 +551,41 @@
             border-top: 1px solid var(--gray-600);
             color: var(--gray-600);
         }
+        .dropup {
+            position: relative;
+            display: inline-block;
+        }
+        .dropup-text {
+            color: var(--ieee-gold);
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .dropup-text:hover {
+            text-decoration: underline;
+        }
+        .dropup-content {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            min-width: 120px;
+            box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+        .dropup-content a {
+            color: #333;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropup-content a:hover {
+            background: #f1f1f1;
+        }
+        .dropup:hover .dropup-content {
+            display: block;
+        }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -1000,6 +1035,16 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2025 IEEE Circuits and Systems Society Kerala Section. All rights reserved.</p>
+        </div>
+        <div class="footer-bottom">
+            <p>made by</p>
+            <div class="dropup">
+                <span class="dropup-text">Us</span>
+                <div class="dropup-content">
+                    <a href="https://www.linkedin.com/in/hemanthv2004/">Hemanth</a>
+                    <a href="https://www.linkedin.com/in/jayasurya-jayakumar-b4a878252/">Jayasurya</a>
+                    </div>
+            </div>
         </div>
     </footer>
 
