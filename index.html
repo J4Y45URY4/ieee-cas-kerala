@@ -73,8 +73,6 @@
             font-size: 1.1rem;
         }
 
-        
-
         .nav-links {
             display: flex;
             list-style: none;
@@ -88,8 +86,6 @@
             font-weight: 500;
             transition: color 0.3s;
         }
-        
-
 
         .nav-links a:hover {
             color: var(--ieee-blue);
@@ -330,7 +326,9 @@
             justify-content: center;
             color: white;
             font-size: 3rem;
+            overflow: hidden;
         }
+
         .event-image img {
             width: 100%;
             height: 100%;
@@ -419,6 +417,7 @@
             font-size: 0.875rem;
             margin-bottom: 1.5rem;
         }
+
         /* Student Branch Chapters Section */
         .chapters {
             background: var(--gray-100);
@@ -436,7 +435,10 @@
             padding: 2rem;
             text-align: center;
             box-shadow: var(--shadow-md);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: width 0.3s ease-in-out, transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
         .chapter-card:hover {
@@ -475,10 +477,59 @@
             margin-bottom: 1rem;
         }
 
-        .chapter-description {
+        .chapter-details {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            padding: 1rem;
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .chapter-card.open .chapter-details {
+            transform: translateX(-100%);
+        }
+
+        .chapter-details-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-details-content p {
             color: var(--gray-600);
             font-size: 0.875rem;
-            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-details-content a {
+            color: var(--ieee-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .chapter-details-content a:hover {
+            text-decoration: underline;
+        }
+
+        .chapter-details-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .chapter-details-close:hover {
+            color: var(--ieee-blue);
         }
 
         /* Footer */
@@ -530,6 +581,7 @@
             text-decoration: none;
             transition: background 0.3s;
         }
+
         .social-link i {
             font-size: 25px;
             line-height: 1; 
@@ -537,7 +589,7 @@
             align-items: center;
             justify-content: center;
             transform: translateY(8px);
-         }
+        }
 
         .social-link:hover {
             transform: scale(1.5);
@@ -551,18 +603,22 @@
             border-top: 1px solid var(--gray-600);
             color: var(--gray-600);
         }
+
         .dropup {
             position: relative;
             display: inline-block;
         }
+
         .dropup-text {
             color: var(--ieee-gold);
             cursor: pointer;
             font-weight: bold;
         }
+
         .dropup-text:hover {
             text-decoration: underline;
         }
+
         .dropup-content {
             display: none;
             position: absolute;
@@ -574,15 +630,18 @@
             box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
             border-radius: 4px;
         }
+
         .dropup-content a {
             color: #333;
             padding: 10px;
             text-decoration: none;
             display: block;
         }
+
         .dropup-content a:hover {
             background: #f1f1f1;
         }
+
         .dropup:hover .dropup-content {
             display: block;
         }
@@ -590,38 +649,37 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-            gap: 2rem;
+                grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
             }
+
             .nav-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top:100%;
-                left:0;
-                right:0;
-                background:var(--white);
-                gap:0;
-                padding:1rem 2rem;
-                box-shadow:var(--shadow-lg);
-                border-top:1px solid var(--gray-200);
-                z-index:1000;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                gap: 0;
+                padding: 1rem 2rem;
+                box-shadow: var(--shadow-lg);
+                border-top: 1px solid var(--gray-200);
+                z-index: 1000;
             }
-            .nav-links.mobile-open{
-                display:flex;
 
+            .nav-links.mobile-open {
+                display: flex;
             }
-            .nav-links li{
-                width:100%;
-            }
-            
-            .nav-links a{
-                display:block;
-                padding:0.75rem 0;
-                border-bottom:1px solid var(--gray-200);
-                width:100%;
 
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid var(--gray-200);
+                width: 100%;
             }
 
             .mobile-menu-btn {
@@ -653,6 +711,10 @@
             .stats-grid {
                 grid-template-columns: 1fr;
             }
+
+            .chapter-card.open {
+                width: 100%;
+            }
         }
 
         /* Animations */
@@ -676,7 +738,6 @@
             scroll-behavior: smooth;
         }
     </style>
-    
 </head>
 <body>
     <!-- Header -->
@@ -696,7 +757,6 @@
             </ul>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
-                
             </button>
         </nav>
     </header>
@@ -727,14 +787,13 @@
                     <h2>About IEEE CASS Kerala</h2>
                     <p>The IEEE Circuits and Systems Society Kerala Section is dedicated to advancing the theory and application of circuits and systems. Our student leadership team works tirelessly to bridge the gap between academic learning and industry requirements.</p>
                     <p>We organize technical workshops, seminars, competitions, and networking events to foster innovation and professional development among students and young professionals in Kerala.</p>
-                    <a href="https://www.ieee.org/membership-catalog/productdetail/showProductDetailPage.html?product=MEMCAS004&refProd=MEMCAS004" target="_blank"  class="btn btn-primary">Join Our Community</a>
+                    <a href="https://www.ieee.org/membership-catalog/productdetail/showProductDetailPage.html?product=MEMCAS004&refProd=MEMCAS004" target="_blank" class="btn btn-primary">Join Our Community</a>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-number">500+</div>
                         <div class="stat-label">Active Members</div>
                     </div>
-                    
                     <div class="stat-item">
                         <div class="stat-number">15+</div>
                         <div class="stat-label">Events This Year</div>
@@ -755,19 +814,19 @@
     <!-- Leadership Team -->
     <section class="section" id="team">
         <div class="container">
-            <div class="section-header" >
+            <div class="section-header">
                 <h2 class="section-title">Professional Execom</h2>
                 <p class="section-subtitle">Meet the passionate professionals leading IEEE CAS Kerala Section towards excellence and innovation.</p>
             </div>
             <div class="team-grid" style="margin-bottom: 20px;">
-               <div class="team-card fade-in-up">
-                    <div class="chapter-img"><img src="peoples/lt.png">  </div>
+                <div class="team-card fade-in-up">
+                    <div class="chapter-img"><img src="peoples/lt.png"></div>
                     <h3 class="team-name">Mr Libin T.T</h3>
                     <p class="team-position">Chair</p>
                     <p class="team-bio">Associate Director and Scientist 'F' at C-DAC</p>
                 </div>
                 <div class="team-card fade-in-up">
-                    <div class="chapter-img"><img src="peoples/jk.png">  </div>
+                    <div class="chapter-img"><img src="peoples/jk.png"></div>
                     <h3 class="team-name">Dr Jagdeesh Kumar P</h3>
                     <p class="team-position">Vice Chair</p>
                     <p class="team-bio">Assistant Professor at Model Engineering College,Thrikkakara</p>
@@ -779,8 +838,6 @@
                     <p class="team-bio">CHIEF RF Solution Achitect,XARK Technologies Pvt Ltd</p>
                 </div>   
             </div>
-            </div>
-            <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Student Leadership Team</h2>
                 <p class="section-subtitle">Meet the passionate individuals leading IEEE CAS Kerala Section towards excellence and innovation.</p>
@@ -801,7 +858,6 @@
             </div>
         </div>
     </section>
-    
 
     <!-- Events Section -->
     <section class="section events" id="events">
@@ -813,44 +869,16 @@
             <div class="events-grid">
                 <div class="event-card">
                     <div class="event-image">
-                        <i class="fas fa-microchip"></i>
+                        <img src="/events/1.jpeg" alt="">
                     </div>
                     <div class="event-content">
-                        <span class="event-date">June 15, 2025</span>
-                        <h3 class="event-title">VLSI Design Workshop</h3>
-                        <p class="event-description">Hands-on workshop on advanced VLSI design techniques using industry-standard tools. Perfect for students and professionals.</p>
+                        <span class="event-date">July 12, 2025</span>
+                        <h3 class="event-title">VEGA Processor Programming workshops</h3>
+                        <p class="event-description"> Introduction to VEGA Microprocessor fundamentals,Interactive, hands-on programming sessions,In-depth exploration of VEGA processor architecture,Certificate of Participation for all attendees.</p>
                         <div class="event-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> TKM College of Engineering</span>
-                            <span><i class="fas fa-users"></i> 50 seats</span>
-                            <a href="#" class="btn btn-primary">Register</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-image">
-                        <i class="fas fa-broadcast-tower"></i>
-                    </div>
-                    <div class="event-content">
-                        <span class="event-date">June 28, 2025</span>
-                        <h3 class="event-title">5G Communications Seminar</h3>
-                        <p class="event-description">Expert talks on 5G technology, circuit design challenges, and future opportunities in wireless communications.</p>
-                        <div class="event-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> CET Trivandrum</span>
-                            <span><i class="fas fa-users"></i> 100 seats</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-image">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="event-content">
-                        <span class="event-date">July 10, 2025</span>
-                        <h3 class="event-title">Circuit Design Competition</h3>
-                        <p class="event-description">State-level competition for innovative circuit designs. Cash prizes and internship opportunities for winners.</p>
-                        <div class="event-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> CUSAT Kochi</span>
-                            <span><i class="fas fa-users"></i> Team Event</span>
+                            <span><i class="fas fa-map-marker-alt"></i>C-DAC,Vellayambalam Campus</span>
+                            <span><i class="fas fa-users"></i> Limited seats</span>
+                            <a href="https://forms.gle/q2CVLZk2H27cegLK6" class="btn btn-primary">Register</a>
                         </div>
                     </div>
                 </div>
@@ -872,7 +900,7 @@
                     </div>
                     <h3 class="resource-title">Study Materials</h3>
                     <p class="resource-description">Comprehensive notes, tutorials, and reference materials for circuits and systems courses.</p>
-                    <a href="https://resourcecenter.cas.ieee.org/" target="_blank"  class="btn btn-primary">Access Now</a>
+                    <a href="https://resourcecenter.cas.ieee.org/" target="_blank" class="btn btn-primary">Access Now</a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -880,7 +908,7 @@
                     </div>
                     <h3 class="resource-title">Simulation Tools</h3>
                     <p class="resource-description">Links to free and student versions of popular circuit simulation software and tutorials.</p>
-                    <a href="https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html" target="_blank"  class="btn btn-primary">Download</a>
+                    <a href="https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html" target="_blank" class="btn btn-primary">Download</a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -888,7 +916,7 @@
                     </div>
                     <h3 class="resource-title">Research Papers</h3>
                     <p class="resource-description">Curated collection of recent research papers and publications in circuits and systems.</p>
-                    <a href="https://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank"   class="btn btn-primary">Browse</a>
+                    <a href="https://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank" class="btn btn-primary">Browse</a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -896,102 +924,223 @@
                     </div>
                     <h3 class="resource-title">Career Guidance</h3>
                     <p class="resource-description">Job opportunities, internship programs, and career advice for circuits and systems engineers.</p>
-                    <a href="https://ieee-collabratec.ieee.org/" target="_blank"  class="btn btn-primary">Explore</a>
+                    <a href="https://ieee-collabratec.ieee.org/" target="_blank" class="btn btn-primary">Explore</a>
                 </div>
             </div>
         </div>
     </section>
-    <!-- chapters -->
-     <section class="section chapters" id="chapters">
+
+    <!-- Chapters Section -->
+    <section class="section chapters" id="chapters">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Student Branch Chapters</h2>
                 <p class="section-subtitle">Explore our active IEEE CAS student branch chapters across Kerala's top engineering institutions.</p>
             </div>
             <div class="chapter-grid">
-                <div class="chapter-card fade-in-up">
+                <div class="chapter-card fade-in-up" >
                     <div class="chapter-img">
                         <img src="colleges/cusat.png">
                     </div>
                     <h3 class="chapter-name">CUSAT Kochi</h3>
-                    <p class="chapter-location">Enakulam, Kerala</p>
+                    <p class="chapter-location">Ernakulam, Kerala</p>
+                    <div class="chapter-details">
+                        <button class="chapter-details-close"><i class="fas fa-times"></i></button>
+                        <div class="chapter-details-content">
+                            <h3>CUSAT Kochi</h3>
+                            <p><strong>Location:</strong> Ernakulam, Kerala</p>
+                            <p>The IEEE CAS chapter at CUSAT is known for its innovative projects and active participation in national conferences.</p>
+                            <p><strong>Contact:</strong> <a href="mailto:cusatcas@ieee.org">cusatcas@ieee.org</a></p>
+                            <p><strong>Website:</strong> <a href="https://cusat.ac.in" target="_blank">https://cusat.ac.in</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="chapter-card fade-in-up">
+                <div class="chapter-card fade-in-up" >
                     <div class="chapter-img">
-                        <img src="colleges/duk.png" >
+                        <img src="colleges/duk.png">
                     </div>
                     <h3 class="chapter-name">Digital University Kerala</h3>
                     <p class="chapter-location">Thiruvananthapuram, Kerala</p>
+                    <div class="chapter-details">
+                        <button class="chapter-details-close"><i class="fas fa-times"></i></button>
+                        <div class="chapter-details-content">
+                            <h3>Digital University Kerala</h3>
+                            <p><strong>Location:</strong> Thiruvananthapuram, Kerala</p>
+                            <p>DUK’s CAS chapter focuses on cutting-edge research in AI and circuit design.</p>
+                            <p><strong>Contact:</strong> <a href="mailto:dukcas@ieee.org">dukcas@ieee.org</a></p>
+                            <p><strong>Website:</strong> <a href="https://duk.ac.in" target="_blank">https://duk.ac.in</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="chapter-card fade-in-up">
+                <div class="chapter-card fade-in-up" >
                     <div class="chapter-img">
                         <img src="colleges/iist.png">
                     </div>
                     <h3 class="chapter-name">IIST Trivandrum</h3>
                     <p class="chapter-location">Thiruvananthapuram, Kerala</p>
+                    <div class="chapter-details">
+                        <button class="chapter-details-close"><i class="fas fa-times"></i></button>
+                        <div class="chapter-details-content">
+                            <h3>IIST Trivandrum</h3>
+                            <p><strong>Location:</strong> Thiruvananthapuram, Kerala</p>
+                            <p>IIST’s chapter excels in space technology and analog circuit applications.</p>
+                            <p><strong>Contact:</strong> <a href="mailto:iistcas@ieee.org">iistcas@ieee.org</a></p>
+                            <p><strong>Website:</strong> <a href="https://iist.ac.in" target="_blank">https://iist.ac.in</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="chapter-card fade-in-up">
+                <div class="chapter-card fade-in-up" >
                     <div class="chapter-img">
                         <img src="colleges/iitk.png">
                     </div>
                     <h3 class="chapter-name">IIIT Kottayam</h3>
                     <p class="chapter-location">Kottayam, Kerala</p>
+                    <div class="chapter-details">
+                        <button class="chapter-details-close"><i class="fas fa-times"></i></button>
+                        <div class="chapter-details-content">
+                            <h3>IIIT Kottayam</h3>
+                            <p><strong>Location:</strong> Kottayam, Kerala</p>
+                            <p>IIIT Kottayam’s chapter promotes open-source hardware and VLSI design.</p>
+                            <p><strong>Contact:</strong> <a href="mailto:iiitkcas@ieee.org">iiitkcas@ieee.org</a></p>
+                            <p><strong>Website:</strong> <a href="https://iiitkottayam.ac.in" target="_blank">https://iiitkottayam.ac.in</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="chapter-card fade-in-up">
+                <div class="chapter-card fade-in-up" >
                     <div class="chapter-img">
                         <img src="colleges/mits.png">
                     </div>
-                    <h3 class="chapter-name">Muthoot institute of Science and Technology</h3>
+                    <h3 class="chapter-name">Muthoot Institute of Science and Technology</h3>
                     <p class="chapter-location">Ernakulam, Kerala</p>
+                    <div class="chapter-details">
+                        <button class="chapter-details-close"><i class="fas fa-times"></i></button>
+                        <div class="chapter-details-content">
+                            <h3>Muthoot Institute of Science and Technology</h3>
+                            <p><strong>Location:</strong> Ernakulam, Kerala</p>
+                            <p>MITS chapter organizes workshops on embedded systems and IoT.</p>
+                            <p><strong>Contact:</strong> <a href="mailto:mitscas@ieee.org">mitscas@ieee.org</a></p>
+                            <p><strong>Website:</strong> <a href="https://mgmits.ac.in" target="_blank">https://mgmits.ac.in</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="chapter-card fade-in-up">
+                <div class="chapter-card fade-in-up" >
                     <div class="chapter-img">
-                        <img src="colleges/model.png" >
+                        <img src="colleges/model.png">
                     </div>
                     <h3 class="chapter-name">Model Engineering College</h3>
                     <p class="chapter-location">Ernakulam, Kerala</p>
+                    <div class="chapter-details">
+                        <button class="chapter-details-close"><i class="fas fa-times"></i></button>
+                        <div class="chapter-details-content">
+                            <h3>Model Engineering College</h3>
+                            <p><strong>Location:</strong> Ernakulam, Kerala</p>
+                            <p>MEC’s CAS chapter is a hub for circuit simulation and PCB design workshops.</p>
+                            <p><strong>Contact:</strong> <a href="mailto:meccas@ieee.org">meccas@ieee.org</a></p>
+                            <p><strong>Website:</strong> <a href="https://mec.ac.in" target="_blank">https://mec.ac.in</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="chapter-card fade-in-up">
+                <div class="chapter-card fade-in-up" >
                     <div class="chapter-img">
-                        <img src="colleges/nhrc.png" >
+                        <img src="colleges/nhrc.png">
                     </div>
                     <h3 class="chapter-name">Nehru College of Engineering and Research Centre</h3>
                     <p class="chapter-location">Thrissur, Kerala</p>
+                    <div class="chapter-details">
+                        <button class="chapter-details-close"><i class="fas fa-times"></i></button>
+                        <div class="chapter-details-content">
+                            <h3>Nehru College of Engineering and Research Centre</h3>
+                            <p><strong>Location:</strong> Thrissur, Kerala</p>
+                            <p>NCERC’s chapter hosts annual circuit design competitions.</p>
+                            <p><strong>Contact:</strong> <a href="mailto:ncerccas@ieee.org">ncerccas@ieee.org</a></p>
+                            <p><strong>Website:</strong> <a href="https://ncerc.ac.in" target="_blank">https://ncerc.ac.in</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="chapter-card fade-in-up">
+                <div class="chapter-card fade-in-up" >
                     <div class="chapter-img">
-                        <img src="colleges/nitc.png" >
+                        <img src="colleges/nitc.png">
                     </div>
                     <h3 class="chapter-name">NIT Calicut</h3>
                     <p class="chapter-location">Kozhikode, Kerala</p>
+                    <div class="chapter-details">
+                        <button class="chapter-details-close"><i class="fas fa-times"></i></button>
+                        <div class="chapter-details-content">
+                            <h3>NIT Calicut</h3>
+                            <p><strong>Location:</strong> Kozhikode, Kerala</p>
+                            <p>NITC’s CAS chapter is renowned for its research publications and tech fests.</p>
+                            <p><strong>Contact:</strong> <a href="mailto:nitccas@ieee.org">nitccas@ieee.org</a></p>
+                            <p><strong>Website:</strong> <a href="https://nitc.ac.in" target="_blank">https://nitc.ac.in</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="chapter-card fade-in-up">
+                <div class="chapter-card fade-in-up" >
                     <div class="chapter-img">
                         <img src="colleges/Pvc.png">
                     </div>
-                    <h3 class="chapter-name">Providence college of Engineering</h3>
+                    <h3 class="chapter-name">Providence College of Engineering</h3>
                     <p class="chapter-location">Alappuzha, Kerala</p>
+                    <div class="chapter-details">
+                        <button class="chapter-details-close"><i class="fas fa-times"></i></button>
+                        <div class="chapter-details-content">
+                            <h3>Providence College of Engineering</h3>
+                            <p><strong>Location:</strong> Alappuzha, Kerala</p>
+                            <p>PCE’s chapter focuses on sustainable circuit solutions.</p>
+                            <p><strong>Contact:</strong> <a href="mailto:pcecas@ieee.org">pcecas@ieee.org</a></p>
+                            <p><strong>Website:</strong> <a href="https://providence.edu.in" target="_blank">https://providence.edu.in</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="chapter-card fade-in-up">
+                <div class="chapter-card fade-in-up" >
                     <div class="chapter-img">
-                        <img src="colleges/sce.png" >
+                        <img src="colleges/sce.png">
                     </div>
                     <h3 class="chapter-name">Sahrdaya College of Engineering and Technology</h3>
                     <p class="chapter-location">Thrissur, Kerala</p>
+                    <div class="chapter-details">
+                        <button class="chapter-details-close"><i class="fas fa-times"></i></button>
+                        <div class="chapter-details-content">
+                            <h3>Sahrdaya College of Engineering and Technology</h3>
+                            <p><strong>Location:</strong> Thrissur, Kerala</p>
+                            <p>SCET’s chapter is active in signal processing and robotics events.</p>
+                            <p><strong>Contact:</strong> <a href="mailto:scetcas@ieee.org">scetcas@ieee.org</a></p>
+                            <p><strong>Website:</strong> <a href="https://sahrdaya.ac.in" target="_blank">https://sahrdaya.ac.in</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="chapter-card fade-in-up">
+                <div class="chapter-card fade-in-up" >
                     <div class="chapter-img">
                         <img src="colleges/tkm.png">
                     </div>
                     <h3 class="chapter-name">TKM College of Engineering</h3>
                     <p class="chapter-location">Kollam, Kerala</p>
+                    <div class="chapter-details">
+                        <button class="chapter-details-close"><i class="fas fa-times"></i></button>
+                        <div class="chapter-details-content">
+                            <h3>TKM College of Engineering</h3>
+                            <p><strong>Location:</strong> Kollam, Kerala</p>
+                            <p>TKM’s CAS chapter hosts regular industry-academia meetups.</p>
+                            <p><strong>Contact:</strong> <a href="mailto:tkmcas@ieee.org">tkmcas@ieee.org</a></p>
+                            <p><strong>Website:</strong> <a href="https://tkmce.ac.in" target="_blank">https://tkmce.ac.in</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="chapter-card fade-in-up">
+                <div class="chapter-card fade-in-up" >
                     <div class="chapter-img">
                         <img src="colleges/vjc.png">
                     </div>
                     <h3 class="chapter-name">Vimal Jyothi College of Engineering</h3>
                     <p class="chapter-location">Kannur, Kerala</p>
+                    <div class="chapter-details">
+                        <button class="chapter-details-close"><i class="fas fa-times"></i></button>
+                        <div class="chapter-details-content">
+                            <h3>Vimal Jyothi College of Engineering</h3>
+                            <p><strong>Location:</strong> Kannur, Kerala</p>
+                            <p>VJCE’s chapter promotes hands-on learning in digital circuits.</p>
+                            <p><strong>Contact:</strong> <a href="mailto:vjcecas@ieee.org">vjcecas@ieee.org</a></p>
+                            <p><strong>Website:</strong> <a href="https://vjec.ac.in" target="_blank">https://vjec.ac.in</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1004,7 +1153,6 @@
                 <h3>IEEE CAS Kerala</h3>
                 <p>Advancing circuits and systems education and research across Kerala's premier engineering institutions.</p>
                 <div class="social-links">
-                    
                     <a href="https://www.linkedin.com/in/ieee-circuits-and-systems-society-cass-69675b355/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://www.instagram.com/ieeecasskc?igsh=bGltYTJ3MjNrMjI4" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -1028,22 +1176,19 @@
                 <h3>Stay Updated</h3>
                 <p>Subscribe to our newsletter for the latest updates on events and opportunities.</p>
                 <div style="margin-top: 1rem;">
-                    
-                    <button class="btn btn-primary"   onclick="window.open('https://ieee-cas.us7.list-manage.com/subscribe?u=a56289c418698825973a992ba&id=0215fa861b','blank')">Subscribe</button>
+                    <button class="btn btn-primary" onclick="window.open('https://ieee-cas.us7.list-manage.com/subscribe?u=a56289c418698825973a992ba&id=0215fa861b','blank')">Subscribe</button>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 IEEE Circuits and Systems Society Kerala Section. All rights reserved.</p>
-        
-        
+            <p>© 2025 IEEE Circuits and Systems Society Kerala Section. All rights reserved.</p>
             <p>Designed by</p>
             <div class="dropup">
                 <span class="dropup-text">Web Team CASS KC</span>
                 <div class="dropup-content">
                     <a href="https://www.linkedin.com/in/hemanthv2004/" target="_blank">Hemanth</a>
-                    <a href="https://www.linkedin.com/in/jayasurya-jayakumar-b4a878252/" target="_blank">jayasurya</a>
-                    </div>
+                    <a href="https://www.linkedin.com/in/jayasurya-jayakumar-b4a878252/" target="_blank">Jayasurya</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -1054,7 +1199,7 @@
         const navLinks = document.querySelector('.nav-links');
 
         mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.classList.toggle('mobile-open');
         });
 
         // Smooth scrolling for navigation links
@@ -1069,8 +1214,36 @@
                     });
                 }
                 if (window.innerWidth <= 768) {
-                navLinks.style.display = 'none';
+                    navLinks.classList.remove('mobile-open');
                 }
+            });
+        });
+
+        // Chapter details handling
+        const chapterCards = document.querySelectorAll('.chapter-card');
+        chapterCards.forEach(card => {
+            const content = card.querySelector('.chapter-img, .chapter-name, .chapter-location');
+            const details = card.querySelector('.chapter-details');
+            card.addEventListener('click', (e) => {
+                if (!card.classList.contains('open') && e.target !== card.querySelector('.chapter-details-close')) {
+                    chapterCards.forEach(c => {
+                        c.classList.remove('open');
+                        c.querySelector('.chapter-img').style.display = 'flex';
+                        c.querySelector('.chapter-name').style.display = 'block';
+                        c.querySelector('.chapter-location').style.display = 'block';
+                    });
+                    card.classList.add('open');
+                    card.querySelector('.chapter-img').style.display = 'none';
+                    card.querySelector('.chapter-name').style.display = 'none';
+                    card.querySelector('.chapter-location').style.display = 'none';
+                }
+            });
+            card.querySelector('.chapter-details-close').addEventListener('click', (e) => {
+                e.stopPropagation();
+                card.classList.remove('open');
+                card.querySelector('.chapter-img').style.display = 'flex';
+                card.querySelector('.chapter-name').style.display = 'block';
+                card.querySelector('.chapter-location').style.display = 'block';
             });
         });
 
@@ -1089,62 +1262,20 @@
             });
         }, observerOptions);
 
-        // Observe elements for animation
-        document.querySelectorAll('.team-card, .event-card, .resource-card').forEach(el => {
+        document.querySelectorAll('.team-card, .event-card, .resource-card, .chapter-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
 
-        // Newsletter subscription
-        document.addEventListener('DOMContentLoaded', () => {
-            const subscribeBtn = document.querySelector('button[style*="width: 100%"]');
-            const emailInput = document.querySelector('input[type="email"]');
-            
-            if (subscribeBtn && emailInput) {
-                subscribeBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const email = emailInput.value.trim();
-                    
-                    if (email && isValidEmail(email)) {
-                        // Simulate subscription process
-                        subscribeBtn.textContent = 'Subscribing...';
-                        subscribeBtn.disabled = true;
-                        
-                        setTimeout(() => {
-                            subscribeBtn.textContent = 'Subscribed!';
-                            subscribeBtn.style.background = 'var(--kerala-green)';
-                            emailInput.value = '';
-                            
-                            setTimeout(() => {
-                                subscribeBtn.textContent = 'Subscribe';
-                                subscribeBtn.style.background = 'var(--ieee-gold)';
-                                subscribeBtn.disabled = false;
-                            }, 2000);
-                        }, 1000);
-                    } else {
-                        alert('Please enter a valid email address');
-                    }
-                });
-            }
-        });
-
-        // Email validation function
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-
         // Dynamic counter animation for stats
         function animateCounters() {
             const counters = document.querySelectorAll('.stat-number');
-            
             counters.forEach(counter => {
                 const target = parseInt(counter.textContent.replace('+', ''));
                 const increment = target / 50;
                 let current = 0;
-                
                 const timer = setInterval(() => {
                     current += increment;
                     if (current >= target) {
@@ -1157,7 +1288,6 @@
             });
         }
 
-        // Trigger counter animation when stats section comes into view
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1172,100 +1302,54 @@
             statsObserver.observe(statsSection);
         }
 
-        // Add loading animation for event cards
-        function addLoadingStates() {
-            const eventCards = document.querySelectorAll('.event-card');
-            eventCards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
-            });
-        }
-
-        // Initialize loading states
-        addLoadingStates();
-
         // Header scroll effect
         let lastScrollTop = 0;
         const header = document.querySelector('.header');
 
         window.addEventListener('scroll', () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
             if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scrolling down
                 header.style.transform = 'translateY(-100%)';
             } else {
-                // Scrolling up
                 header.style.transform = 'translateY(0)';
             }
-            
             lastScrollTop = scrollTop;
         });
 
-        // Add transition to header
         header.style.transition = 'transform 0.3s ease-in-out';
 
         // Mobile responsive navigation
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
-                navLinks.style.display = 'flex';
-            } else {
-                navLinks.style.display = 'none';
+                navLinks.classList.remove('mobile-open');
             }
-        });//
-
-        // Lazy loading for images (if any are added later)
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
-        // Contact form handling (for future implementation)
-        function handleContactForm() {
-            const contactForms = document.querySelectorAll('form');
-            contactForms.forEach(form => {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    // Handle form submission
-                    console.log('Form submitted');
-                });
-            });
-        }
-
-        // Initialize contact form handling
-        handleContactForm();
-
-        // Performance optimization: Defer non-critical functions
-        window.addEventListener('load', () => {
-            // Add any performance-heavy operations here
-            console.log('IEEE CAS Kerala website loaded successfully');
         });
 
         // Accessibility improvements
         document.addEventListener('keydown', (e) => {
-            // ESC key to close mobile menu
-            if (e.key === 'Escape' && window.innerWidth <= 768) {
-                navLinks.style.display = 'none';
+            if (e.key === 'Escape') {
+                chapterCards.forEach(card => {
+                    card.classList.remove('open');
+                    card.querySelector('.chapter-img').style.display = 'flex';
+                    card.querySelector('.chapter-name').style.display = 'block';
+                    card.querySelector('.chapter-location').style.display = 'block';
+                });
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('mobile-open');
+                }
             }
         });
 
-        // Focus management for mobile menu
         mobileMenuBtn.addEventListener('click', () => {
-            const isMenuOpen = navLinks.style.display === 'flex';
+            const isMenuOpen = navLinks.classList.contains('mobile-open');
             if (isMenuOpen) {
                 navLinks.querySelector('a').focus();
             }
+        });
+
+        // Performance optimization
+        window.addEventListener('load', () => {
+            console.log('IEEE CAS Kerala website loaded successfully');
         });
     </script>
 </body>
