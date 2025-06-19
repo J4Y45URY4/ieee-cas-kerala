@@ -336,6 +336,35 @@
             object-fit: cover;
             display: block;
             object-position: center;
+            cursor: pointer;
+        }
+         /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: #fff;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            cursor: pointer;
         }
 
         .event-content {
@@ -650,10 +679,22 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .event-card {
+                max-width: 100%;
+            }
+
+            .event-image {
+                aspect-ratio: 4 / 3; /* Adjust for smaller screens */
+            }
+
+            .close {
+                top: 0.5rem;
+                right: 1rem;
+            }
             .events-grid {
                 grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
             }
-
+             
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -871,7 +912,7 @@
             <div class="events-grid">
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="events/1.png">
+                        <img src="events/1.png" onclick="openModal(this.src)">
                     </div>
                     <div class="event-content">
                         <span class="event-date">July 12, 2025</span>
@@ -887,6 +928,10 @@
             </div>
         </div>
     </section>
+     <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">×</span>
+        <img class="modal-content" id="modalImage">
+    </div>
 
     <!-- Resources Section -->
     <section class="section" id="resources">
@@ -1196,6 +1241,33 @@
     </footer>
 
     <script>
+        
+          function openModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
